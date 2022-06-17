@@ -5,8 +5,12 @@ body {
     align-items: center;
 }
 
-th, td, tr {
+th,
+td,
+tr {
     border: 1px solid black;
     min-width: 100px;
     padding: 20px;
+    display: flex;
+    justify-content: center;
 }
