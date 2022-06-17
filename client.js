@@ -1,0 +1,1 @@
+// store the information to calculate monthly costs, append information to the DOM and clear the input fields.

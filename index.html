@@ -12,16 +12,34 @@
 </head>
 
 <body>
-    <!-- 1. The application should have an (input form) that collects _employee first name, last name, ID number, job title, annual salary_. -->
-    <form action="">
-        <input placeholder='First Name' type="text">
-        <input placeholder='Last Name' type="text">
-        <input placeholder='Employee ID' type="text">
-        <input placeholder='Job Title' type="text">
-        <input placeholder='Annual Salary' type="text">
-        <!-- 2. A 'Submit' button should collect the form information -->
-        <button id='submit-button' type="submit">Submit</button>
-    </form>
+    <header>
+        <h1>Salary Calculator</h1>
+    </header>
+    <main>
+        <!-- 1. The application should have an (input form) that collects _employee first name, last name, ID number, job title, annual salary_. -->
+        <h2>Add Employee</h2>
+        <form action="">
+            <input placeholder='First Name' type="text">
+            <input placeholder='Last Name' type="text">
+            <input placeholder='Employee ID' type="text">
+            <input placeholder='Job Title' type="text">
+            <input placeholder='Annual Salary' type="text">
+            <!-- 2. A 'Submit' button should collect the form information -->
+            <button id='submit-button' type="submit">Submit</button>
+        </form>
+
+        <h2>Employees</h2>
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Employee ID</th>
+                <th>Job Title</th>
+                <th>Annual Salary</th>
+                <th>You're fired!</th>
+            </tr>
+        </table>
+    </main>
 
 </body>
 
