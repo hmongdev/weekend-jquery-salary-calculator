@@ -5,9 +5,8 @@ body {
     align-items: center;
 }
 
-table,
-tr,
-th {
+th, td, tr {
     border: 1px solid black;
+    min-width: 100px;
+    padding: 20px;
 }
-
