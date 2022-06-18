@@ -15,7 +15,7 @@ let employees = [];
 
 // store the information to calculate monthly costs, append information to the DOM and clear the input fields.
 function addEmployee() {
-    //inputs
+    //jQuery variables
     let firstName = $('#firstName');
     let lastName = $('#lastName');
     let employeeId = $('#employeeId');
@@ -32,7 +32,7 @@ function addEmployee() {
     <td><button id="removeBtn">Remove</button></td>
 </tr>`);
 
-    //create employee object
+    //create employee object => grab the inputs from user
     let newEmployee = {
         firstName: firstName.val(),
         lastName: lastName.val(),
@@ -41,7 +41,7 @@ function addEmployee() {
         annualSalary: Number(annualSalary.val())
     }
 
-    //push employee object to employees array
+    //push employee object to employees array => adding employee to table
     employees.push(newEmployee);
     console.log(employees);
 
@@ -65,7 +65,7 @@ function totalMonthlySalary() {
     //loop thru employees
     for (employee of employees) {
         //add all employee's salaries
-        sum += employee.annualSalary
+        sum += employee.annualSalary;
         //update the sum
         $('#total-monthly').text(sum);
     }
