@@ -45,3 +45,8 @@ th {
     text-align: left;
     padding: 8px;
 }
+
+#table-bottom {
+    background-color: #015EB8;
+    height: 2rem;
+}
