@@ -19,13 +19,13 @@
         <!-- 1. The application should have an (input form) that collects _employee first name, last name, ID number, job title, annual salary_. -->
         <h2>Add Employee</h2>
         <form action="">
-            <input id="first-name" placeholder='First Name' type="text">
-            <input id="last-name" placeholder='Last Name' type="text">
-            <input id="employee-id" placeholder='Employee ID' type="text">
-            <input id="job-title" placeholder='Job Title' type="text">
-            <input id="annual-salary" placeholder='Annual Salary' type="text">
+            <input id="firstName" placeholder='First Name' type="text">
+            <input id="lastName" placeholder='Last Name' type="text">
+            <input id="employeeId" placeholder='Employee ID' type="number">
+            <input id="jobTitle" placeholder='Job Title' type="text">
+            <input id="annualSalary" placeholder='Annual Salary' type="number">
             <!-- 2. A 'Submit' button should collect the form information -->
-            <input id='submit-btn' type="button" value="Submit"></input>
+            <input id='submitBtn' type="button" value="Submit"></input>
         </form>
 
         <h2>Employees</h2>
@@ -43,6 +43,9 @@
             </tbody>
         </table>
     </main>
+    <footer>
+        <h1>Total Monthly: $<span id="total-monthly">0</span></h1>
+    </footer>
 
 </body>
 

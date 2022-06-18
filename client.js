@@ -4,38 +4,65 @@ $(ready)
 //ready function
 function ready() {
     //get the values from input fields
-    $('#submit-btn').on('click', addEmployee);
+    $('#submitBtn').on('click', addEmployee);
+    // $('#submit-btn').on('click', deleteBtn,removeEmployee);
 }
 
-//inputs
-let firstName = $('#first-name')
-let lastName = $('#last-name')
-let employeeId = $('#employee-id')
-let jobTitle = $('#job-title')
-let annualSalary = $('#annual-salary')
-let submitBtn = $('#submit-btn')
+let submitBtn = $('#submitBtn')
 
-console.log(lastName.val());
+//employee array to hold employee objects
+let employees = [];
 
 // store the information to calculate monthly costs, append information to the DOM and clear the input fields.
 function addEmployee() {
+    //inputs
+    let firstName = $('#firstName')
+    let lastName = $('#lastName')
+    let employeeId = $('#employeeId')
+    let jobTitle = $('#jobTitle')
+    let annualSalary = $('#annualSalary')
+
+    //display to DOM
     $('tbody').append(`<tr>
     <td>${firstName.val()}</td>
     <td>${lastName.val()}</td>
     <td>${employeeId.val()}</td>
     <td>${jobTitle.val()}</td>
     <td>${annualSalary.val()}</td>
-    <td><button id="delete-btn">Remove</button></td>
+    <td><button id="deleteBtn">Remove</button></td>
 </tr>`);
+
+    //create employee object
+    let newEmployee = {
+        firstName: firstName.val(),
+        lastName: lastName.val(),
+        employeeId: Number(employeeId.val()),
+        jobTitle: jobTitle.val(),
+        annualSalary: Number(annualSalary.val())
+    }
+
+    //push employee object to employees array
+    employees.push(newEmployee);
+    console.log(employees);
+
+    //clear inputs
     clearInputs();
+    //calculate monthly salary
+    totalMonthlySalary();
 }
 
 function clearInputs() {
-    firstName.val('');
-    lastName.val('');
-    employeeId.val('');
-    jobTitle.val('');
-    annualSalary.val('');
+    $('#firstName').val('');
+    $('#lastName').val('');
+    $('#employeeId').val('');
+    $('#jobTitle').val('');
+    $('#annualSalary').val('');
 }
 
-// For Base mode, it does **not** need to remove that Employee's salary from the reported total.
+function totalMonthlySalary() {
+    let sum = 0;
+    for (employee of employees) {
+        sum += employee.annualSalary
+        console.log(sum);
+    }
+}
