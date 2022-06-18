@@ -5,7 +5,7 @@ $(ready)
 function ready() {
     //get the values from input fields
     $('#submitBtn').on('click', addEmployee);
-    // $('#submit-btn').on('click', deleteBtn,removeEmployee);
+    $(document).on('click', '#removeBtn',removeEmployee);
 }
 
 let submitBtn = $('#submitBtn')
@@ -16,11 +16,11 @@ let employees = [];
 // store the information to calculate monthly costs, append information to the DOM and clear the input fields.
 function addEmployee() {
     //inputs
-    let firstName = $('#firstName')
-    let lastName = $('#lastName')
-    let employeeId = $('#employeeId')
-    let jobTitle = $('#jobTitle')
-    let annualSalary = $('#annualSalary')
+    let firstName = $('#firstName');
+    let lastName = $('#lastName');
+    let employeeId = $('#employeeId');
+    let jobTitle = $('#jobTitle');
+    let annualSalary = $('#annualSalary');
 
     //display to DOM
     $('tbody').append(`<tr>
@@ -29,7 +29,7 @@ function addEmployee() {
     <td>${employeeId.val()}</td>
     <td>${jobTitle.val()}</td>
     <td>${annualSalary.val()}</td>
-    <td><button id="deleteBtn">Remove</button></td>
+    <td><button id="removeBtn">Remove</button></td>
 </tr>`);
 
     //create employee object
@@ -65,4 +65,12 @@ function totalMonthlySalary() {
         sum += employee.annualSalary
         console.log(sum);
     }
+    if (sum >= 20000) {
+        $('#total-monthly').css('background-color', 'red');
+    }
+}
+
+function removeEmployee() {
+    let tr = $(this).parents('tr');
+    tr.remove();
 }
