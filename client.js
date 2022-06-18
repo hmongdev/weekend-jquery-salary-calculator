@@ -5,7 +5,7 @@ $(ready)
 function ready() {
     //get the values from input fields
     $('#submitBtn').on('click', addEmployee);
-    $(document).on('click', '#removeBtn',removeEmployee);
+    $(document).on('click', '#removeBtn', removeEmployee);
 }
 
 let submitBtn = $('#submitBtn')
@@ -60,12 +60,16 @@ function clearInputs() {
 }
 
 function totalMonthlySalary() {
+    //declare sum variable
     let sum = 0;
+    //loop thru employees
     for (employee of employees) {
+        //add all employee's salaries
         sum += employee.annualSalary
-        console.log(sum);
+        //update the sum
+        $('#total-monthly').text(sum);
     }
-    if (sum >= 20000) {
+    if (sum >= 200000) {
         $('#total-monthly').css('background-color', 'red');
     }
 }

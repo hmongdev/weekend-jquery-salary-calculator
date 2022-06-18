@@ -21,9 +21,9 @@
         <form action="">
             <input id="firstName" placeholder='First Name' type="text">
             <input id="lastName" placeholder='Last Name' type="text">
-            <input id="employeeId" placeholder='Employee ID' type="number">
+            <input id="employeeId" placeholder='Employee ID' min='1' max='100' type="number">
             <input id="jobTitle" placeholder='Job Title' type="text">
-            <input id="annualSalary" placeholder='Annual Salary' type="number">
+            <input id="annualSalary" placeholder='Annual Salary' step='1000' min='10,000' max='1,000,000' type="number">
             <!-- 2. A 'Submit' button should collect the form information -->
             <input id='submitBtn' type="button" value="Submit"></input>
         </form>
@@ -38,7 +38,7 @@
                     <th>Job Title</th>
                     <th>Annual Salary</th>
                     <!-- Create a delete button that removes an employee from the DOM. -->
-                    <th>You're fired!</th>
+                    <th>Remove</th>
                 </tr>
             </tbody>
         </table>
