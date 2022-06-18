@@ -7,13 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
     <script src='client.js' charset="UTF-8" async></script>
+    <!-- ADAM Font -->
+    <link href="http://fonts.cdnfonts.com/css/adam-2" rel="stylesheet">
+    <!-- CSS -->
     <link rel='stylesheet' href='style.css' />
-    <title>Document</title>
+    <title>Employee Salary Calculator</title>
 </head>
 
 <body>
     <header>
-        <h1>Salary Calculator</h1>
+        <h1>Employee Salary Calculator</h1>
     </header>
     <main>
         <!-- 1. The application should have an (input form) that collects _employee first name, last name, ID number, job title, annual salary_. -->
@@ -23,7 +26,7 @@
             <input id="lastName" placeholder='Last Name' type="text">
             <input id="employeeId" placeholder='Employee ID' min='1' max='100' type="number">
             <input id="jobTitle" placeholder='Job Title' type="text">
-            <input id="annualSalary" placeholder='Annual Salary' step='1000' min='10,000' max='1,000,000' type="number">
+            <input id="annualSalary" placeholder='Annual Salary' step='10000' min='10,000' max='1,000,000' type="number">
             <!-- 2. A 'Submit' button should collect the form information -->
             <input id='submitBtn' type="button" value="Submit"></input>
         </form>
@@ -39,6 +42,9 @@
                     <th>Annual Salary</th>
                     <!-- Create a delete button that removes an employee from the DOM. -->
                     <th>Remove</th>
+                </tr>
+                <tr>
+                    <td colspan="6"></td>
                 </tr>
             </tbody>
         </table>

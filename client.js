@@ -66,6 +66,7 @@ function totalMonthlySalary() {
     for (employee of employees) {
         //add all employee's salaries
         sum += employee.annualSalary;
+        sum /= 12;
         //update the sum
         $('#total-monthly').text(sum);
     }
@@ -77,4 +78,6 @@ function totalMonthlySalary() {
 function removeEmployee() {
     let tr = $(this).parents('tr');
     tr.remove();
+
+    //remove object from employee array
 }

@@ -1,9 +1,29 @@
 body {
-    font-family: arial, sans-serif;
+    font-family: 'ADAM', sans-serif;
+    letter-spacing: 0.2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0;
+}
+
+h2 {
+    color: #015EB8;
+}
+
+td#block {
+    display: block;
+    width: 100%;
+    clear: both
+}
+
+header {
+    background-color: #015EB8;
+    color: #fff;
+    min-width: 100vw;
+    min-height: 10vh;
+    text-align: center;
 }
 
 table {
@@ -14,6 +34,9 @@ table {
 input {
     border: 1px solid black;
     border-radius: 3px;
+    min-height: 30px;
+    min-width: 100px;
+    font-weight: bold;
 }
 
 td,
