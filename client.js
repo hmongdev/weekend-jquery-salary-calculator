@@ -27,6 +27,15 @@ function addEmployee() {
     <td>${annualSalary.val()}</td>
     <td><button id="delete-btn">Remove</button></td>
 </tr>`);
+    clearInputs();
+}
+
+function clearInputs() {
+    firstName.val('');
+    lastName.val('');
+    employeeId.val('');
+    jobTitle.val('');
+    annualSalary.val('');
 }
 
 // For Base mode, it does **not** need to remove that Employee's salary from the reported total.
