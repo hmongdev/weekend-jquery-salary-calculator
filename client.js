@@ -17,23 +17,23 @@ let employees = [];
 function addEmployee() {
 
     //declare the jQuery inputs
-    let firstName = $('#firstName');
-    let lastName = $('#lastName');
-    let employeeId = $('#employeeId');
-    let jobTitle = $('#jobTitle');
-    let annualSalary = $('#annualSalary');
+    let firstName = $('#firstName').val();
+    let lastName = $('#lastName').val();
+    let employeeId = $('#employeeId').val();
+    let jobTitle = $('#jobTitle').val();
+    let annualSalary = $('#annualSalary').val();
 
     //create employee object => grabbing the values from inputs
     let newEmployee = {
-        firstName: firstName.val(),
-        lastName: lastName.val(),
-        employeeId: Number(employeeId.val()),
-        jobTitle: jobTitle.val(),
-        annualSalary: Number(annualSalary.val())
+        firstName: firstName,
+        lastName: lastName,
+        employeeId: Number(employeeId),
+        jobTitle: jobTitle,
+        annualSalary: Number(annualSalary)
     }
 
     //if inputs are empty => error message
-    if (firstName.val() === '' || lastName.val() === '' || employeeId.val() === '' || jobTitle.val() === '' || annualSalary.val() === '') {
+    if (firstName === '' || lastName === '' || employeeId === '' || jobTitle === '' || annualSalary === '') {
         alert('Please fill in all the inputs before adding an employee');
         // else => add employee object
     } else {
@@ -43,11 +43,11 @@ function addEmployee() {
 
         // append information to the DOM 
         $('tbody').append(`<tr>
-            <td>${firstName.val()}</td>
-            <td>${lastName.val()}</td>
-            <td>${employeeId.val()}</td>
-            <td>${jobTitle.val()}</td>
-            <td>${annualSalary.val()}</td>
+            <td>${firstName}</td>
+            <td>${lastName}</td>
+            <td>${employeeId}</td>
+            <td>${jobTitle}</td>
+            <td>$${annualSalary}</td>
             <td><button id="removeBtn"> ❌ </button></td>
         </tr>`);
 
@@ -67,7 +67,7 @@ function clearInputs() {
     $('#annualSalary').val('');
 }
 
-//declare sum variable
+//declare monthlyTotal variable
 let monthlyTotal = 0;
 
 function totalMonthlySalary() {
@@ -89,15 +89,20 @@ function totalMonthlySalary() {
 
 //remove the employee's salary
 function removeEmployee() {
-    //declare jQuery object
+    //declare jQuery object => all the 'td' elements including 'tr'
     let tr = $(this).parents('tr')
+
     //target the employee object and remove it
     tr.remove();
 
     //remove employee object from array => tr
-    let removedAnnualSalary = tr.find('td')[4];
-    console.log(removedAnnualSalary);
-    
+    let removedProperties = Array.from(tr.find('td')); // => all the 'td' elements in array
+    console.log(removedProperties);
+
+    // for (value of removedProperties) {
+    //     console.log(value.contains('$'));
+    // }
+
     //subtract removedSalary from the total
     // monthlyTotal -= removedAnnualSalary * 12;
 }
