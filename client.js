@@ -70,8 +70,8 @@ function totalMonthlySalary() {
         //update the monthlyTotal //round 2 decimal points
         $('#total-monthly').text(monthlyTotal.toFixed(2));
     }
-    if (monthlyTotal >= 200000) {
-        $('#total-monthly').css('background-color', 'red');
+    if (monthlyTotal >= 20000) {
+        $('#total-monthly').css('color', 'red');
     }
 }
 

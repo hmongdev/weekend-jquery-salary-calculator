@@ -1,15 +1,28 @@
+body,
+html {
+    height: 100vh;
+}
+
 body {
     font-family: 'ADAM', sans-serif;
     letter-spacing: 0.2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+
+    /* justify-content: center;
+    align-items: center; */
     margin: 0;
 }
 
 :root {
     --blue: #015EB8;
+}
+
+::placeholder {
+    font-size: 1rem;
+    font-weight: bold;
+    font-style: italic;
 }
 
 h2 {
@@ -39,13 +52,13 @@ input {
     border: 1px solid black;
     border-radius: 3px;
     min-height: 30px;
-    min-width: 100px;
+    min-width: 10rem;
     font-weight: bold;
 }
 
 th {
     color: white;
-    background-color: var(--blue) ;
+    background-color: var(--blue);
 }
 
 td,
@@ -56,6 +69,10 @@ th {
     text-align: center;
 }
 
-#table-bottom {
+.total-heading {
+    text-align: right;
     height: 2rem;
+    position: fixed;
+    bottom: 0%;
+    right: 35%;
 }
