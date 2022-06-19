@@ -21,7 +21,7 @@ function addEmployee() {
     let lastName = $('#lastName').val();
     let employeeId = $('#employeeId').val();
     let jobTitle = $('#jobTitle').val();
-    let annualSalary = $('#annualSalary').val();
+    let annualSalary = Math.round($('#annualSalary').val());
 
     //create employee object => grabbing the values from inputs
     let newEmployee = {
@@ -47,7 +47,7 @@ function addEmployee() {
             <td>${lastName}</td>
             <td>${employeeId}</td>
             <td>${jobTitle}</td>
-            <td>$${annualSalary}</td>
+            <td id='removedSalary'>${annualSalary}</td>
             <td><button id="removeBtn"> ❌ </button></td>
         </tr>`);
 
@@ -67,42 +67,53 @@ function clearInputs() {
     $('#annualSalary').val('');
 }
 
-//declare monthlyTotal variable
+//declare monthlyTotal 
+//1. local = keep inside totalMonthlySalary function
+//2. global = reassign it within the function
 let monthlyTotal = 0;
 
 function totalMonthlySalary() {
+    monthlyTotal = 0;
     //loop thru employees
     for (employee of employees) {
         //add all employee's salaries
-        monthlyTotal += employee.annualSalary;
-        monthlyTotal /= 12
-        //update the monthlyTotal //round 2 decimal points
-        $('#total-monthly').text(monthlyTotal.toFixed(2));
+        monthlyTotal += (employee.annualSalary / 12);
+        console.log(monthlyTotal);
     }
+    //update DOM with monthlyTotal
+    $('#total-monthly').text(monthlyTotal.toFixed(2));
     //if monthlyTotal > 20,000 change color to red
-    if (monthlyTotal >= 20000) {
+    changeColor();
+}
+
+// Once the employee is deleted, update the _Total Monthly Cost_ section on the page to reflect the employee's removal. 
+function changeColor() {
+    if (monthlyTotal > 20000) {
         $('#total-monthly').css('color', 'red');
+    } else {
+        $('#total-monthly').css('color', 'black');
     }
 }
 
-// Once the employee is deleted, update the _Total Monthly Cost_ section on the page to reflect the employee's removal. _HINT:_ You will need to figure out which employee was removed, in order to subtract their salary from the total. Consider using `.text()` as a getter, or look into jQuery's `.data()` function. This is tricky!
+// _HINT:_ You will need to figure out which employee was removed, in order to subtract their salary from the total. Consider using `.text()` as a getter, or look into jQuery's `.data()` function. This is tricky!
 
 //remove the employee's salary
 function removeEmployee() {
+
+    //grabbing the REMOVED salary
+    let removedSalary = Number($(this).parent().parent().children('#removedSalary').text());
+
+    //calculate the removed salary
+    //833.33 -= (10000) = 
+    Math.round(monthlyTotal -= (removedSalary / 12));
+    console.log(`Monthly total is:`, monthlyTotal);
+    //push to DOM
+    $('#total-monthly').text(monthlyTotal.toFixed(2));
+
     //declare jQuery object => all the 'td' elements including 'tr'
-    let tr = $(this).parents('tr')
-
-    //target the employee object and remove it
+    let tr = $(this).parents('tr');
+    //target the employee object and remove all its children
     tr.remove();
-
-    //remove employee object from array => tr
-    let removedProperties = Array.from(tr.find('td')); // => all the 'td' elements in array
-    console.log(removedProperties);
-
-    // for (value of removedProperties) {
-    //     console.log(value.contains('$'));
-    // }
-
-    //subtract removedSalary from the total
-    // monthlyTotal -= removedAnnualSalary * 12;
+    //check color
+    changeColor();
 }
