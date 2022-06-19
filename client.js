@@ -16,39 +16,40 @@ let employees = [];
 //
 function addEmployee() {
 
-    //jQuery variables -  store the information to calculate monthly costs
+    //declare the jQuery inputs
     let firstName = $('#firstName');
     let lastName = $('#lastName');
     let employeeId = $('#employeeId');
     let jobTitle = $('#jobTitle');
     let annualSalary = $('#annualSalary');
 
+    //create employee object => grabbing the values from inputs
+    let newEmployee = {
+        firstName: firstName.val(),
+        lastName: lastName.val(),
+        employeeId: Number(employeeId.val()),
+        jobTitle: jobTitle.val(),
+        annualSalary: Number(annualSalary.val())
+    }
+
     //if inputs are empty => error message
     if (firstName.val() === '' || lastName.val() === '' || employeeId.val() === '' || jobTitle.val() === '' || annualSalary.val() === '') {
         alert('Please fill in all the inputs before adding an employee');
         // else => add employee object
     } else {
-        //create employee object => push employeeObject into array
-        let newEmployee = {
-            firstName: firstName.val(),
-            lastName: lastName.val(),
-            employeeId: Number(employeeId.val()),
-            jobTitle: jobTitle.val(),
-            annualSalary: Number(annualSalary.val())
-        }
         //push employee object to employees array => adding employee to table
         employees.push(newEmployee);
         console.log(employees);
 
-        //append information to the DOM 
+        // append information to the DOM 
         $('tbody').append(`<tr>
-        <td>${firstName.val()}</td>
-        <td>${lastName.val()}</td>
-        <td>${employeeId.val()}</td>
-        <td>${jobTitle.val()}</td>
-        <td>${annualSalary.val()}</td>
-        <td><button id="removeBtn"> ❌ </button></td>
-    </tr>`);
+            <td>${firstName.val()}</td>
+            <td>${lastName.val()}</td>
+            <td>${employeeId.val()}</td>
+            <td>${jobTitle.val()}</td>
+            <td>${annualSalary.val()}</td>
+            <td><button id="removeBtn"> ❌ </button></td>
+        </tr>`);
 
         //clear inputs
         clearInputs();
@@ -78,6 +79,7 @@ function totalMonthlySalary() {
         //update the monthlyTotal //round 2 decimal points
         $('#total-monthly').text(monthlyTotal.toFixed(2));
     }
+    //if monthlyTotal > 20,000 change color to red
     if (monthlyTotal >= 20000) {
         $('#total-monthly').css('color', 'red');
     }
@@ -87,11 +89,15 @@ function totalMonthlySalary() {
 
 //remove the employee's salary
 function removeEmployee() {
-    //target the employee and remove it
-    $(this).parents('tr').remove();
-    //get the removedAnnualSalary from removed employee
-    let removedAnnualSalary = $('#annualSalary').text();
+    //declare jQuery object
+    let tr = $(this).parents('tr')
+    //target the employee object and remove it
+    tr.remove();
+
+    //remove employee object from array => tr
+    let removedAnnualSalary = tr.find('td')[4];
     console.log(removedAnnualSalary);
+    
     //subtract removedSalary from the total
-    monthlyTotal -= removedAnnualSalary * 12;
+    // monthlyTotal -= removedAnnualSalary * 12;
 }
