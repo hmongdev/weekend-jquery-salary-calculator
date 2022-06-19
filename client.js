@@ -86,7 +86,6 @@ function totalMonthlySalary() {
     changeColor();
 }
 
-// Once the employee is deleted, update the _Total Monthly Cost_ section on the page to reflect the employee's removal. 
 function changeColor() {
     if (monthlyTotal > 20000) {
         $('#total-monthly').css('color', 'red');
@@ -99,13 +98,13 @@ function changeColor() {
 
 //remove the employee's salary
 function removeEmployee() {
-
-    //grabbing the REMOVED salary
+    
+    //grab the REMOVED salary //is there a better way to do this
     let removedSalary = Number($(this).parent().parent().children('#removedSalary').text());
-
-    //calculate the removed salary
-    //833.33 -= (10000) = 
+    
+    // Once the employee is deleted, update the _Total Monthly Cost_ section on the page to reflect the employee's removal. 
     Math.round(monthlyTotal -= (removedSalary / 12));
+    //calculate the removed salary
     console.log(`Monthly total is:`, monthlyTotal);
     //push to DOM
     $('#total-monthly').text(monthlyTotal.toFixed(2));
