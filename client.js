@@ -61,16 +61,16 @@ function clearInputs() {
 
 function totalMonthlySalary() {
     //declare sum variable
-    let sum = 0;
+    let monthlyTotal = 0;
     //loop thru employees
     for (employee of employees) {
         //add all employee's salaries
-        sum += employee.annualSalary;
-        sum /= 12;
-        //update the sum
-        $('#total-monthly').text(sum);
+        monthlyTotal += employee.annualSalary;
+        monthlyTotal /= 12
+        //update the monthlyTotal //round 2 decimal points
+        $('#total-monthly').text(monthlyTotal.toFixed(2));
     }
-    if (sum >= 200000) {
+    if (monthlyTotal >= 200000) {
         $('#total-monthly').css('background-color', 'red');
     }
 }
