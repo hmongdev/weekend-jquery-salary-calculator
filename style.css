@@ -17,10 +17,11 @@ body {
 
 :root {
     --blue: #015EB8;
+    --input-text-size: 1.3rem;
 }
 
 ::placeholder {
-    font-size: 1rem;
+    font-size: var(--input-text-size);
     font-weight: bold;
     font-style: italic;
 }
@@ -54,6 +55,7 @@ input {
     min-height: 30px;
     min-width: 10rem;
     font-weight: bold;
+    font-size: var(--input-text-size);
 }
 
 th {
