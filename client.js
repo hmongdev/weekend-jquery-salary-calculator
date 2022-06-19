@@ -75,9 +75,15 @@ function totalMonthlySalary() {
     }
 }
 
+//remove the employee's salary
 function removeEmployee() {
+    //get all the parents of 'tr'
     let tr = $(this).parents('tr');
-    tr.remove();
+    //get the annualSalary of tr
+    let removedAnnualSalary = tr.find(this).val('annualSalary');
+    //check to see if we grabbed the value
+    console.log(removedAnnualSalary);
 
+    tr.remove();
     //remove object from employee array
 }

@@ -8,8 +8,12 @@ body {
     margin: 0;
 }
 
+:root {
+    --blue: #015EB8;
+}
+
 h2 {
-    color: #015EB8;
+    color: var(--blue);
 }
 
 td#block {
@@ -19,7 +23,7 @@ td#block {
 }
 
 header {
-    background-color: #015EB8;
+    background-color: var(--blue);
     color: #fff;
     min-width: 100vw;
     min-height: 10vh;
@@ -39,14 +43,19 @@ input {
     font-weight: bold;
 }
 
+th {
+    color: white;
+    background-color: var(--blue) ;
+}
+
 td,
 th {
     border: 1px solid black;
     text-align: left;
     padding: 8px;
+    text-align: center;
 }
 
 #table-bottom {
-    background-color: #015EB8;
     height: 2rem;
 }
