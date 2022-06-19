@@ -13,6 +13,9 @@ jQuery Salary Calculator
 
 _Duration: 4 hours base, 4 hours stretch_
 
+What this app does:
+This application allows you to add employees to a table, remove employees, and calculates the montly costs of hiring/firing them.
+
 WHAT problems I encountered, and HOW I solved the problem:
 
 1. Grabbing the annualSalary and adding them together
@@ -27,6 +30,8 @@ Include one or two screen shots of your project here (optional).
 
 Link to software that is required to install the app (e.g. node).
 
+- [Node.js](https://nodejs.org/en/)
+- [Node.js](https://nodejs.org/en/)
 - [Node.js](https://nodejs.org/en/)
 
 ## Installation
