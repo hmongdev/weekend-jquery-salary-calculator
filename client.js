@@ -42,6 +42,7 @@ function addEmployee() {
         console.log(employees);
 
         // append information to the DOM 
+        // could use a for looop to append employees
         $('tbody').append(`<tr>
             <td>${firstName}</td>
             <td>${lastName}</td>

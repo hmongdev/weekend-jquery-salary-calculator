@@ -33,8 +33,8 @@ None
 ## Usage
 How does someone use this application? Tell a user story here.
 
-1. xxx
-2. xxx
+1. A user can type information about the employee into the input fields. All the input fields must be filled in order to add the employee to the table.
+2. Once an employee is added, they will show up in the table and can be removed with the appropriate button.
 3. xxx
 4. xxx
 5. xxx
